@@ -18,6 +18,6 @@ end
 
 task :sshkit_hello do  
   run_locally do
-    rake "hello"  
+    rake "hello"
   end
 end
