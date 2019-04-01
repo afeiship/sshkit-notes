@@ -13,7 +13,11 @@
     "docs:deploy": "./.bin/deploy.sh"
   },
   "license": "MIT",
+  "resolutions": {
+    "webpack-dev-middleware": "3.6.0"
+  },
   "devDependencies": {
-    "vuepress": "^1.0.0-alpha.46"
+    "vuepress": "^0.14.10",
+    "webpack-dev-middleware": "^3.6.0"
   }
 }
