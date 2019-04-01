@@ -15,7 +15,7 @@ module.exports = {
   themeConfig: {
     sidebar: [
       {
-        title: 'Get started',
+        title: 'On Remote',
         collapsable: false,
         children: [
           '/on_remote/001-password.md',
