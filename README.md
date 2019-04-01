@@ -1,6 +1,9 @@
 # sshkit-notes
 > Rake sshkit notes.
 
+## docs:
+- https://afeiship.github.io/sshkit-notes/
+
 ## resources:
 + https://github.com/capistrano/sshkit
 

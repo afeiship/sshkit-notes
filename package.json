@@ -1,0 +1,19 @@
+{
+  "name": "sshkit-notes",
+  "version": "1.0.0",
+  "description": "Rake sshkit notes",
+  "homepage": "https://github.com/afeiship/sshkit-notes",
+  "author": {
+    "name": "afei",
+    "email": "1290657123@qq.com"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "docs:deploy": "./.bin/deploy.sh"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.0.0-alpha.44"
+  }
+}
