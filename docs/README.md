@@ -7,5 +7,6 @@ Basic install steps.
 
 ## Javascript
   - [Home](/)
-  - [get-started](/javascript/001-get-started.md)
-  - [globby](/javascript/002-globby.md)
+  - [by-password](/on_remote/001-password.md)
+  - [id-rsa](/on_remote/002-id_rsa.md)
+  - [load-yaml](/on_remote/003-load_yaml.md)

@@ -17,7 +17,11 @@ module.exports = {
       {
         title: 'Get started',
         collapsable: false,
-        children: ['/javascript/001-get-started.md', '/javascript/002-globby.md']
+        children: [
+          '/on_remote/001-password.md',
+          '/on_remote/002-id_rsa.md',
+          '/on_remote/003-load_yaml.md'
+        ]
       }
     ]
   }
