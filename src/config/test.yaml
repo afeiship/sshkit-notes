@@ -1,0 +1,5 @@
+ssh_options:
+  :user: fzheng
+  :auth_methods:
+    - publickey
+host: 123.123.211.122

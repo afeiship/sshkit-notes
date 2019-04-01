@@ -8,3 +8,5 @@ package-lock.json
 .idea
 .vscode
 dist
+id_rsa
+config.yaml
