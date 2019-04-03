@@ -1,8 +1,3 @@
-require "yaml"
-require "sshkit"
-require "sshkit/dsl"
-include SSHKit::DSL
-
 config = YAML.load_file "./config/test.yaml"
 # REF:
 # https://github.com/capistrano/sshkit/blob/master/EXAMPLES.md#setting-global-ssh-options

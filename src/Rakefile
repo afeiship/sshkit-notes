@@ -1,3 +1,8 @@
+require "yaml"
+require "sshkit"
+require "sshkit/dsl"
+include SSHKit::DSL
+
 Dir.glob("./tasks/*.rake").each do |task|
   load task
 end

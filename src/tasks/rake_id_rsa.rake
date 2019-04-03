@@ -1,7 +1,3 @@
-require "sshkit"
-require "sshkit/dsl"
-include SSHKit::DSL
-
 # REF:
 # https://github.com/capistrano/sshkit/blob/master/EXAMPLES.md#setting-global-ssh-options
 
