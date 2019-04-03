@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>id_rsa | Rake sshkit notes</title>
+    <meta name="description" content="Rake sshkit notes">
+    <link rel="icon" href="http://himg.bdimg.com/sys/portrait/item/be10475f686d6c73db00.jpg">
+    
+    <link rel="preload" href="/sshkit-notes/assets/css/0.styles.a141f2ea.css" as="style"><link rel="preload" href="/sshkit-notes/assets/js/app.1e731b69.js" as="script"><link rel="preload" href="/sshkit-notes/assets/js/2.971303b6.js" as="script"><link rel="preload" href="/sshkit-notes/assets/js/8.161203fc.js" as="script"><link rel="prefetch" href="/sshkit-notes/assets/js/10.93e26d41.js"><link rel="prefetch" href="/sshkit-notes/assets/js/3.97c436f5.js"><link rel="prefetch" href="/sshkit-notes/assets/js/4.78dc510e.js"><link rel="prefetch" href="/sshkit-notes/assets/js/5.b3a8b9f1.js"><link rel="prefetch" href="/sshkit-notes/assets/js/6.5d6885f5.js"><link rel="prefetch" href="/sshkit-notes/assets/js/7.6b7d4d57.js"><link rel="prefetch" href="/sshkit-notes/assets/js/9.82ea5e22.js">
+    <link rel="stylesheet" href="/sshkit-notes/assets/css/0.styles.a141f2ea.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/sshkit-notes/" class="home-link router-link-active"><!----> <span class="site-name">Rake sshkit notes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>On Remote</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/sshkit-notes/on_remote/001-password.html" class="sidebar-link">password</a></li><li><a href="/sshkit-notes/on_remote/002-id_rsa.html" class="active sidebar-link">id_rsa</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/sshkit-notes/on_remote/002-id_rsa.html#config" class="sidebar-link">config</a></li></ul></li><li><a href="/sshkit-notes/on_remote/003-load_yaml.html" class="sidebar-link">load yaml</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="content default"><h1 id="id-rsa"><a href="#id-rsa" aria-hidden="true" class="header-anchor">#</a> id_rsa</h1> <blockquote><p>Using id_rsa.</p></blockquote> <h2 id="config"><a href="#config" aria-hidden="true" class="header-anchor">#</a> config</h2> <div class="language-rb extra-class"><pre class="language-rb"><code><span class="token keyword">require</span> <span class="token string">&quot;sshkit&quot;</span>
+<span class="token keyword">require</span> <span class="token string">&quot;sshkit/dsl&quot;</span>
+include <span class="token constant">SSHKit</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">DSL</span>
+
+<span class="token comment"># REF:</span>
+<span class="token comment"># https://github.com/capistrano/sshkit/blob/master/EXAMPLES.md#setting-global-ssh-options</span>
+remote_host <span class="token operator">=</span> <span class="token string">&quot;123.123.123.163&quot;</span>
+<span class="token constant">SSHKit</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">Backend</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token constant">Netssh</span><span class="token punctuation">.</span>configure <span class="token keyword">do</span> <span class="token operator">|</span>ssh<span class="token operator">|</span>
+  filename <span class="token operator">=</span> <span class="token string">&quot;./sshkeys/id_rsa&quot;</span>
+  ssh<span class="token punctuation">.</span>ssh_options <span class="token operator">=</span> <span class="token punctuation">{</span>
+    keys<span class="token punctuation">:</span> <span class="token punctuation">[</span>filename<span class="token punctuation">]</span><span class="token punctuation">,</span>
+    user<span class="token punctuation">:</span> <span class="token string">&quot;fzheng&quot;</span><span class="token punctuation">,</span>
+    auth_methods<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;publickey&quot;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token keyword">end</span>
+
+desc <span class="token string">&quot;By id_rsa&quot;</span>
+task <span class="token symbol">:by_id_rsa</span> <span class="token keyword">do</span>
+  on remote_host <span class="token keyword">do</span>
+    puts capture <span class="token symbol">:whoami</span>
+  <span class="token keyword">end</span>
+<span class="token keyword">end</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/sshkit-notes/on_remote/001-password.html" class="prev">
+          password
+        </a></span> <span class="next"><a href="/sshkit-notes/on_remote/003-load_yaml.html">
+          load yaml
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/sshkit-notes/assets/js/app.1e731b69.js" defer></script><script src="/sshkit-notes/assets/js/2.971303b6.js" defer></script><script src="/sshkit-notes/assets/js/8.161203fc.js" defer></script>
+  </body>
+</html>
